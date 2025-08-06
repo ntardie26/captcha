@@ -5,13 +5,13 @@ if ($_POST && isset($_POST['captcha_input'])) {
     $user_input = trim($_POST['captcha_input']);
     
     if (!isset($_SESSION['captcha_answer']) || !isset($_SESSION['captcha_time']) || !isset($_SESSION['captcha_type'])) {
-        echo "Session expired. <a href='index.html'>Try again</a>";
+        echo "Session expired. <a href='index.php'>Try again</a>";
         exit;
     }
     
     if (time() - $_SESSION['captcha_time'] > 300) {
         unset($_SESSION['captcha_answer'], $_SESSION['captcha_time'], $_SESSION['captcha_type']);
-        echo "Timeout. <a href='index.html'>Try again</a>";
+        echo "Timeout. <a href='index.php'>Try again</a>";
         exit;
     }
     
@@ -22,11 +22,11 @@ if ($_POST && isset($_POST['captcha_input'])) {
     
     if ($valid) {
         unset($_SESSION['captcha_answer'], $_SESSION['captcha_time'], $_SESSION['captcha_type']);
-        echo "Correct! <a href='index.html'>Try another</a>";
+        echo "Correct! <a href='index.php'>Try another</a>";
     } else {
-        echo "Wrong. <a href='index.html'>Try again</a>";
+        echo "Wrong. <a href='index.php'>Try again</a>";
     }
 } else {
-    header('Location: index.html');
+    header('Location: index.php');
 }
 ?>
