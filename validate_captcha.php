@@ -23,105 +23,13 @@ if ($_POST && isset($_POST['captcha_input'])) {
     if ($valid) {
         unset($_SESSION['captcha_answer'], $_SESSION['captcha_time'], $_SESSION['captcha_type']);
         ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Verification Complete</title>
-    <style>
-        body {
-            font-family: monospace;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 50px 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border: 2px solid #333333;
-            padding: 30px;
-        }
-        h1 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #006600;
-        }
-        a {
-            color: #333333;
-            text-decoration: none;
-            font-family: monospace;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>✓ Verification Successful</h1>
-        <p>Access granted.</p>
-        <br>
-        <a href="index.php">Return to Verification</a>
-    </div>
-</body>
-</html>
+<style>body{font-family:monospace;text-align:center;padding:50px;}</style>
+Correct! <a href='index.php'>Try another</a>
         <?php
     } else {
         ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Verification Failed</title>
-    <style>
-        body {
-            font-family: monospace;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 50px 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border: 2px solid #333333;
-            padding: 30px;
-        }
-        h1 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #cc0000;
-        }
-        a {
-            color: #333333;
-            text-decoration: none;
-            font-family: monospace;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>✗ Verification Failed</h1>
-        <p>Incorrect code entered.</p>
-        <br>
-        <a href="index.php">Try Again</a>
-    </div>
-</body>
-</html>
+<style>body{font-family:monospace;text-align:center;padding:50px;}</style>
+Wrong. <a href='index.php'>Try again</a>
         <?php
     }
 } else {
